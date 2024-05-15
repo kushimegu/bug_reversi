@@ -18,11 +18,11 @@ class Position
 
   attr_accessor :row, :col
 
-  def initialize(row_or_cell_ref, col)
+  def initialize(row_or_cell_ref, col = nil)
     if col
       # Position.new(1, 5) のような呼び出し
-      @row = row_or_cell_ref.to_i
-      @col = col.to_i
+      @row = row_or_cell_ref
+      @col = col
     else
       # Position.new('f7')のような呼び出し
       @row = ROW.index(row_or_cell_ref[1])

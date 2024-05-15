@@ -41,8 +41,7 @@ module ReversiMethods
   end
 
   def put_stone(board, cell_ref, stone_color, dry_run: false)
-    row_or_cell_ref, col = cell_ref.split(',')
-    pos = Position.new(row_or_cell_ref, col)
+    pos = Position.new(cell_ref)
     raise '無効なポジションです' if pos.invalid?
     raise 'すでに石が置かれています' unless pos.stone_color(board) == BLANK_CELL
 
